@@ -36,3 +36,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem "paperclip", "~> 4.2"
+gem "paperclip-dropbox", ">= 1.1.7"

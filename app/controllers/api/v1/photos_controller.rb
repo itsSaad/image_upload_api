@@ -6,7 +6,7 @@ class Api::V1::PhotosController < ApplicationController
     @photos = Photo.all
     render :json =>
     {
-      photos: @photos
+      photos: @photos.map { |e| e.jsonObject}
     }, status: :ok
   end
 
@@ -34,4 +34,5 @@ class Api::V1::PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :image)
   end
+
 end

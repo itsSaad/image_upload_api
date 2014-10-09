@@ -1,11 +1,12 @@
 class Photo < ActiveRecord::Base
 
-  has_attached_file :image,
-    storage: :dropbox,
-    dropbox_credentials: Rails.root.join("config/dropbox.yml"),
-    dropbox_visibility: 'public'
 
-    validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  if Rails.env == 'production'
+    has_attached_file(:image, storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml"), dropbox_visibility: 'public')
+  else
+    has_attached_file(:image)
+  end
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def jsonObject
     {

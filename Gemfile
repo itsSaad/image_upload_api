@@ -37,3 +37,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 gem "paperclip", "~> 4.2"
 gem "paperclip-dropbox", ">= 1.1.7"
+
+
+group :development do
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
